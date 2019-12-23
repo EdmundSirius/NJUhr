@@ -20,7 +20,7 @@ class News{
         if num > 1000{
             self.isBreaking = true
         }
-        self.path = path
+        self.path = Download().basePath + path
     }
     
     static func getNews() -> [String:[News]]{
@@ -28,7 +28,7 @@ class News{
         let tmp = Download().getResults(path: Download().basePath)
         res.updateValue(tmp[0]!, forKey: "人事通知")
         res.updateValue(tmp[1]!, forKey: "人事新闻")
-        res.updateValue(tmp[2]!, forKey: "公示公知")
+        res.updateValue(tmp[2]!, forKey: "公示公告")
         res.updateValue(tmp[3]!, forKey: "招聘信息")
         return res
     }

@@ -21,6 +21,7 @@ class CustomCell:UITableViewCell{
         didSet{
             if let new = new{
                 newsTitle.text = new.title
+                newsTitle.adjustsFontSizeToFitWidth = true
                 if new.isBreaking{
                     isBreaking.image = .checkmark
                 }

@@ -44,4 +44,15 @@ extension TabViewController{
         }
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails"{
+            let detailViewController = segue.destination as! DetailViewController
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            let section = indexPath.section
+            let key = sectionTitles[section]
+            let row = indexPath.row
+            detailViewController.webSite = news[key]![row].path
+        }
+    }
 }

@@ -3,10 +3,11 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab View Controller-->
+        <!--News-->
         <scene sceneID="hsy-Ep-52H">
             <objects>
                 <tableViewController id="qgS-iH-Wlf" customClass="TabViewController" customModule="NJUhr" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,6 +39,7 @@
                                 <connections>
                                     <outlet property="isBreaking" destination="CJJ-xG-HxK" id="h3l-98-Ewv"/>
                                     <outlet property="newsTitle" destination="Yul-9L-xVY" id="exk-Z5-PzI"/>
+                                    <segue destination="yBZ-Ax-QWh" kind="show" identifier="showDetails" id="VqX-md-rKu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -46,7 +48,7 @@
                             <outlet property="delegate" destination="qgS-iH-Wlf" id="sPW-is-l3I"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="nKR-1K-xVG"/>
+                    <navigationItem key="navigationItem" title="News" id="nKR-1K-xVG"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8g-G9-MEE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <wkWebView contentMode="scaleToFill" id="sjQ-sQ-Uvy">
@@ -60,6 +62,36 @@
                 </wkWebView>
             </objects>
             <point key="canvasLocation" x="1591" y="108"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="DU4-78-6aF">
+            <objects>
+                <viewController id="yBZ-Ax-QWh" customClass="DetailViewController" customModule="NJUhr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WgR-es-2p3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BEc-wW-0id">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="11D-Jt-BoU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="gnt-O8-QDO"/>
+                    <connections>
+                        <outlet property="webView" destination="BEc-wW-0id" id="0Xb-Rl-p3j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcn-He-lEC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2624.6376811594205" y="107.8125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NaR-jO-rkG">
